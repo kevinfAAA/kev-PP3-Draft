@@ -29,4 +29,16 @@ for job_element in job_elements:
     print(location_element.text.strip())
     print()
 
+# Find Elements by Class Name and Text Content
 
+python_jobs = results.find_all("h2", string="Python")
+print(python_jobs)
+
+# Pass a Function to a Beautiful Soup Method (The program will find 10 job
+# posts that include the word "python" in their job title!)
+
+python_jobs = results.find_all(
+    "h2", string=lambda text: "python" in text.lower()
+)
+
+print(len(python_jobs))
